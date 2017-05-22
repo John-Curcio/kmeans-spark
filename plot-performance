@@ -1,0 +1,17 @@
+import csv
+with open("kmeans-crossval.csv", "wb") as csvfile:
+    datawriter = csv.writer(csvfile)
+    for pair in kCostPairs:
+        datawriter.writerow(pair)
+
+x, y = [], []
+with open("kmeans-crossval.csv", "rb") as csvfile:
+    datareader = csv.reader(csvfile)
+    for row in datareader:
+        x.append(row[0]) 
+        y.append(row[1])
+
+
+import matplotlib.pyplot as plt 
+plt.plot(x, y)
+plt.show()
